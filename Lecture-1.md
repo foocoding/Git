@@ -12,8 +12,9 @@ Tutorial for HackYourFuture Git basics :octocat:. This tutorial has three sectio
 
 ## 1.2 Installing Git
  For Windows,
- install Git for Windows:
- https://github.com/git-for-windows/git/releases/tag/v2.10.2.windows.1
+ install Git Bash:
+ https://git-scm.com/downloads *(Note, when you install it, use all defaults, but if you don't have any personal preference, then selecting `Nano` as your editor is recommended.)*
+
 
  For Linux, open gnome-terminal for GNome desktops  or Konsole for KDE desktops and type the command to install git based on your Linux distribution. 
 
