@@ -1,22 +1,33 @@
-Tutorial for HackYourFuture Git basics :octocat:. This tutorial has three sections:
-1. Git
-2. GitHub
-3. Using Git
+# Lecture 1
+Section one of FooCoding Git. This focuses on these parts:
+1. Version Control
+2. Terminal Time
+3. Singleplayer Git
 
-# 1. Git : 
+In the end you can find **exercises/katas**.
+
+# 1. Version Control
 
 ## 1.1 What is Git, Etymology and a short history.
-* [ ] Version Control (aka Revision control, source control)
-* [ ] Distributed version control system, Linus Torvalds, 2005
-* [ ] GIT: Global Information Tracker or the stupid content tracker or unpleasant person in British slang
+- [ ] How was SW managed before version control was used
+- [ ] Why do we need a version control software (VCS)?
+- [ ] Version Control (aka Revision control, source control)
+- [ ] Git remote model; distributed version control system
+- [ ] Why do we choose Git?
 
-## 1.2 Installing Git
+# 2. Terminal Time
+
+## 2.1 Why are we using the terminal?
+- [ ] Educational - *no magic buttons*
+- [ ] Usability - *most complete interface*
+- [ ] Customizable - *aliases, shortcuts and hooks*
+
+## 2.2 Installing Git
  For Windows,
  install Git Bash:
- https://git-scm.com/downloads *(Note, when you install it, use all defaults, but if you don't have any personal preference, then selecting `Nano` as your editor is recommended.)*
+ https://git-scm.com/downloads *(Note, when you install it, use all defaults, but if you don't have any personal preference, then selecting **`Nano`** as your editor is recommended.)*
 
-
- For Linux, open gnome-terminal for GNome desktops  or Konsole for KDE desktops and type the command to install git based on your Linux distribution. 
+ For Linux, open gnome-terminal for GNome desktops  or Konsole for KDE desktops and type the command to install git based on your Linux distribution.
 
  For a RedHat based Linux (Like CEntOS)
 ```
@@ -30,7 +41,7 @@ Tutorial for HackYourFuture Git basics :octocat:. This tutorial has three sectio
 
  For a Debian based Linux (like Ubuntu)
 ```
- sudo apt-get install git 
+ sudo apt-get install git
 ```
 
  For Arch Linux
@@ -48,104 +59,140 @@ Tutorial for HackYourFuture Git basics :octocat:. This tutorial has three sectio
  brew install git
 ```
 
-# 2. GitHub: 
+## 2.3 Bash commands
 
-## 2.1 What is GitHub 
- GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
-
- Registering/Creating the account on GitHub
- You need
-* A valid Email address
-* An SSH key-pair
-
-
-## 2.2 Generating the ssh keypair
-
- For Windows MSysGit/GitBash command prompt use
+### 2.3.1 Navigating
+- Where am I?
 ```
-ssh-keygen.exe -C "username@email.com" -t rsa
+pwd
+```
+- Create folder
+```
+mkdir theplace
+```
+### 2.3.2 Manipulating
+- Put this in a file (replacing content)
+```
+echo "Hello world!" > file.txt
+```
+- Append this to the file
+```
+echo "Another line" >> file.txt
+```
+- What’s in that file?
+```
+cat file.txt
+```
+### 2.3.3 Finding
+- What’s in here?
+```
+ls
+```
+- Go there!
+```
+cd theplace
+```
+### 2.3.4 Pointers to places
+- This directory
+```
+cd .
+```
+- Parent directory
+```
+cd ..
+```
+- Root directory
+```
+cd /
+```
+- Home directory
+```
+cd ~
 ```
 
- For Linux/MAC, use
+# 3. Singleplayer Git
+## 3.1 Basic git commands
+- Cloning a repository
+  - `git clone`
+- Exploring the repository
+  - `git status`
+  - `git log`
+- Letting Git know you
+  - `git config`
+
+## 3.2 Letting Git know you
 ```
-ssh-keygen -C "username@email.com" -t rsa
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+git config --global core.editor nano
 ```
 
-Supply your Github email address instead of this fake one. 
-Accept the default location storage (default file) for the keys. When prompted for a passphrase, make up one, and don't forget it ! This is your private key, do not share it with anyone.
-You will have `id_rsa` and `id_rsa.pub` files in the directory at the following path `/c/Users/<your_user_name>/.ssh/`
-
- You want to copy the contents of the id\_rsa.pub (open it with a simple text editor or use the command cat in the Bash)
- After you copy the contents of the id\_rsa.pub file, Go to the GitHub account, go to the settings find SSH and GPG keys option and add New SSH key.
-
-## 2.3 Creating a repository
-
-Using your GitHub account, create a repository to which you can add files. Name the repository as MyFirst. Create a public repository and check the box to create a README file. After you create the repository, the URL of your web page would be something like https://github.com/unmeshvrije/MyFirst . Replace unmeshvrije with your username. If you append .git to this URL, you will get the name of your GitHub repository: https://github.com/unmeshvrije/MyFirst.git
-
-
-
-# 3. Using Git
-
-## 3.1 Creating the repository
-```
+## 3.3 Creating a repository
 Create a new directory in your home directory or any other suitable location using
-$mkdir hello-world
-Enter it
-$cd hello-world
-and create a new git repository using 
-$git init
+```
+mkdir hello-world
+# Enter it
+cd hello-world
+# and create a new git repository using
+git init
+```
+You can clone a repository with `git clone <URL>` command. This copies the repository from a remote machine and initializes it on your machine. You can try to clone some public repositories on github.com. For instance the gitkatas repository that will be used later on. `git clone` will create a local folder with the same name as the repository.
+```
+git clone https://github.com/praqma-training/gitkatas.git
 ```
 
-You can clone a repository with `git clone <URL>` command. This copies the repository from a remote machine and initializes it on your machine. You can try to clone some public repositories on github.com
-
-Need some more explanation? Than check out [this](https://www.youtube.com/watch?v=4xDSfNTi3p4&list=PLVYDhqbgYpYUGxRdtQdYVE5Q8h3bt6SIA) video Daan made about how to set up a new Git repo 
-
-## 3.2 Workflow
- Working Directory -> Index -> HEAD
- your local repository consists of three "trees" maintained by git. the first one is your Working Directory which holds the actual files. the second one is the Index which acts as a staging area and finally the HEAD which points to the last commit you've made.
-
- configure your email and username of Github in the git
- ```
-$git config --global user.email "username@email.com"
-$git config --global user.name "username"
+## 3.4 A first commit
+- Staging files
 ```
-The username does not have to be same as your GitHub username.
-
-## 3.3 add and commit
+git add myScript.bat
 ```
- #You can propose changes (add it to the Index) using
- $git add <filename>
- #This is the first step in the basic git workflow.
- 
- #To actually commit these changes use
- $git commit -m "Commit message"
+- See it staged
+```
+git status
+```
+- Get an overview of file changes
+```
+git diff
+```
+- Commit your change
+```
+git commit -m "My first commit!"
 ```
 
-## 3.4 Pushing changes
+# Fun snack: Time to customize!
+Aliases are a great way to speed up your command line experience.
+
+**Simple commit alias**
 ```
-#If you have not cloned (Our case) an existing repository and want to connect your repository to a remote server, you need to add it with
-
-$git remote add origin https://github.com/unmeshvrije/MyFirst.git
-Replace the URL with the repository you created in step 2.3
-
- Now you are able to push your changes to the selected remote server i.e. your remote repository on GitHub.
- Your changes are now in the HEAD of your local working copy. To send those changes to your remote repository, execute 
- $git push -u origin master
+git config --global alias.co "commit"
 ```
-# Troubleshooting
-You could encounter errors if you do not follow the exact procedure as described above.
+**Pretty log alias**
 ```
-error: failed to push some refs to 'git@github.com:myrepo.git'
-
-Solution:
-
-$ git pull origin master
+git config --global alias.sl "log --graph --oneline --pretty"
+```
+**Log alias to show the last 20 commits in a pretty format**
+```
+git config --global alias.l20 "log -n 20 --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all"
 ```
 
-```
-fatal: refusing to merge unrelated histories
 
-Solution:
+# Katas
+A Kata is like an exercise, but it's structured in such a way that you should repeat it often, and the goal is to master it. To master it you need to do the Katas every week, until you find them easy, then do them more and more seldom.
 
-$ git pull --allow-unrelated-histories origin master
+Before doing the Katas, git clone the git-katas repository somewhere on your computer. When you want to do an Kata, change directory (`cd`) to the actual Kata folder. Follow the instructions on the instructions page (`README.md`) carefully.
 ```
+git clone https://github.com/praqma-training/gitkatas.git
+```
+
+[Configure Git](https://github.com/praqma-training/git-katas/tree/master/configure-git)
+
+[Kata 1: Basic Commits](https://github.com/praqma-training/git-katas/tree/master/basic-commits) - Very basic creation of commits.
+
+[Kata 2: Basic Staging](https://github.com/praqma-training/git-katas/blob/master/basic-staging) - interacting with the stage (index).
+
+[Kata 3: Basic Branching](https://github.com/praqma-training/git-katas/blob/master/basic-branching) - The first stride into branching.
+
+[Kata 4: Basic Cleaning](https://github.com/praqma-training/git-katas/blob/master/basic-cleaning) - Cleaning the workspace.
+
+[Kata 5: The Ignore-file](https://github.com/praqma-training/git-katas/blob/master/ignore) - The basics of using the `.gitignore` file.
+
