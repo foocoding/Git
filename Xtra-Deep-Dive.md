@@ -1,6 +1,5 @@
-# Lecture 5 - under the hood
-This section is a deep dive for the students that want to learn more. This section is not required to learn.
-1. Advanced commands
+# Under the hood
+This section is a deep dive in some parts of Git for students that want to learn more. It not required to learn.
 
 
 # 1. Advanced commands
