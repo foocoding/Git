@@ -230,7 +230,7 @@ git clone https://github.com/praqma-training/gitkatas.git
 
 [Kata 6: Fast-forward Merges](https://github.com/praqma-training/git-katas/blob/master/ff-merge) - A tour around the most trivial of merges.
 
-[Kata 7: Commit on Wrong Branch](https://github.com/praqma-training/git-katas/tree/master/basic-commits) - An administrative exercise, how do we *move* a commit that we accidentally put on the wrong branch.
+[Kata 7: Commit on Wrong Branch](https://github.com/praqma-training/git-katas/tree/master/commit-on-wrong-branch) - An administrative exercise, how do we *move* a commit that we accidentally put on the wrong branch.
 
 [Kata 8: Commit on Wrong Branch 2](https://github.com/praqma-training/git-katas/blob/master/commit-on-wrong-branch-2) - Another exercise on what to do if you have accidentally committed on the wrong branch.
 
